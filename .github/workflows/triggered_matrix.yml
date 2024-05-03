@@ -1,0 +1,16 @@
+name: Triggered Matrix
+on:
+  workflow_call:
+    inputs:
+      matrix:
+        required: true
+        type: string
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(inputs.matrix) }}
+    steps:
+      - name: Matrix
+        run: |
+          echo "Matrix id: ${{ matrix.id }}"
