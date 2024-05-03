@@ -1,0 +1,13 @@
+name: Triggered Greeting
+on:
+  workflow_call:
+    inputs:
+      who-to-greet:
+        required: true
+        type: string
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet
+        run: echo "Hello ${{ inputs.who-to-greet }}!"
